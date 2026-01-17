@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Insider Automation Test Suite</th></tr>
+<tr><td><a href="#t0">Insider Tests</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">147,668</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Insider Automation Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Insider Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">com.insider.tests.InsiderTest</td><td><a href="#m0">testFilterJobsAndVerifyList</a></td><td rowspan="1">1768683478688</td><td rowspan="1">63758</td></tr><tr class="failedeven"><td><a href="#m1">testVerifyJobDetails</a></td><td rowspan="1">1768683543779</td><td rowspan="1">1459</td></tr><tr class="failedeven"><td><a href="#m2">testViewRoleRedirect</a></td><td rowspan="1">1768683546221</td><td rowspan="1">64165</td></tr><tr><th colspan="4">Insider Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.insider.tests.InsiderTest</td><td><a href="#m3">testHomePageLoaded</a></td><td rowspan="1">1768683464887</td><td rowspan="1">12807</td></tr></tbody>
+</table>
+<h2>Insider Tests</h2><h3 id="m0">com.insider.tests.InsiderTest#testFilterJobsAndVerifyList</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Jobs list should be present after filtering expected [true] but found [false]
+	at com.insider.tests.InsiderTest.testFilterJobsAndVerifyList(InsiderTest.java:39)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.insider.tests.InsiderTest#testVerifyJobDetails</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.RuntimeException: Could not find location filter: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=124.0.6367.80)
+Build info: version: &apos;4.15.0&apos;, revision: &apos;1d14b5521b&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;15.5&apos;, java.version: &apos;24.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [107f8d77ca51066070abe69971c32679, findElement {using=xpath, value=//select[contains(@name, &apos;location&apos;) or contains(@id, &apos;location&apos;)] | //div[contains(@class, &apos;location&apos;)]//select}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 124.0.6367.80, chrome: {chromedriverVersion: 124.0.6367.207 (a9001a6e39f..., userDataDir: /var/folders/14/2jmktgk542z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61328}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61328/devtoo..., se:cdpVersion: 124.0.6367.80, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 107f8d77ca51066070abe69971c32679
+	at com.insider.pages.JobsListPage.filterByLocation(JobsListPage.java:77)
+	at com.insider.tests.InsiderTest.testVerifyJobDetails(InsiderTest.java:52)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.insider.tests.InsiderTest#testViewRoleRedirect</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Jobs list should be present before clicking View Role expected [true] but found [false]
+	at com.insider.tests.InsiderTest.testViewRoleRedirect(InsiderTest.java:78)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.insider.tests.InsiderTest#testHomePageLoaded</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>
