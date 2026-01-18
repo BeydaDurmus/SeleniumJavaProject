@@ -2,27 +2,13 @@
 
 This project contains automated tests for the Insider website using Selenium WebDriver, TestNG, and Page Object Model (POM) pattern.
 
-## Prerequisites
+## Technologies Used
 
-- Java 11 or higher
-- Maven 3.6 or higher
-- Chrome browser installed
-
-## Project Structure
-
-```
-src/
-├── main/java/com/insider/
-│   ├── base/
-│   │   └── BaseTest.java          # Base test class with setup/teardown
-│   └── pages/
-│       ├── HomePage.java           # Home page object
-│       ├── CareersPage.java        # Careers page object
-│       └── JobsListPage.java       # Jobs list page object
-└── test/java/com/insider/
-    └── tests/
-        └── InsiderTest.java        # TestNG test cases
-```
+- Java
+- Maven
+- TestNG
+- Selenium WebDriver
+- Page Object Model (POM)
 
 ## Test Cases
 
@@ -50,30 +36,3 @@ mvn clean test
 ```bash
 mvn test -DsuiteXmlFile=testng.xml
 ```
-
-### Running specific test
-
-```bash
-mvn test -Dtest=InsiderTest#testHomePageLoaded
-```
-
-## Features
-
-- **Page Object Model**: Each page has its own class with page-specific methods
-- **Optimized Selectors**: Uses CSS selectors and XPath where appropriate
-- **TestNG Framework**: Uses TestNG for test execution and assertions
-- **WebDriverManager**: Automatically manages ChromeDriver
-- **Clean Code**: Well-structured, readable, and maintainable code
-
-## Dependencies
-
-- Selenium WebDriver 4.15.0
-- TestNG 7.8.0
-- WebDriverManager 5.6.2
-
-## Notes
-
-- The project uses WebDriverManager to automatically download and manage the ChromeDriver
-- Tests run in sequence (not parallel) to ensure proper execution order
-- All assertions use TestNG's Assert class for verification
-# SeleniumJavaProject
