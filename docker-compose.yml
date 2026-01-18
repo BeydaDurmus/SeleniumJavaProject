@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # Standalone test runner
+  tests:
+    build: .
+    environment:
+      - BROWSER=chrome
+      - HEADLESS=true
+    volumes:
+      - ./target:/app/target
+    profiles:
+      - standalone
+
+  # Selenium Grid Hub
+  selenium-hub:
+    image: selenium/hub:4.15.0
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    profiles:
+      - grid
+
+  # Chrome Node
+  chrome:
+    image: selenium/node-chrome:4.15.0
+    container_name: chrome
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    profiles:
+      - grid
+
+  # Firefox Node
+  firefox:
+    image: selenium/node-firefox:4.15.0
+    container_name: firefox
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    profiles:
+      - grid
+
+  # Edge Node
+  edge:
+    image: selenium/node-edge:4.15.0
+    container_name: edge
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    profiles:
+      - grid
+
+  # Test runner for Grid
+  test-runner:
+    build: .
+    depends_on:
+      - selenium-hub
+      - chrome
+      - firefox
+    environment:
+      - SELENIUM_GRID_URL=http://selenium-hub:4444/wd/hub
+      - BROWSER=chrome
+    volumes:
+      - ./target:/app/target
+    profiles:
+      - grid
